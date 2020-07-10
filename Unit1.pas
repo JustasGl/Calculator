@@ -1,0 +1,107 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Samples.Spin;
+
+type
+  TForm1 = class(TForm)
+    Plus: TButton;
+
+    Minus: TButton;
+    Multiplication: TButton;
+    Division: TButton;
+    Answer: TLabel;
+    SpinEdit1: TSpinEdit;
+    SpinEdit2: TSpinEdit;
+    procedure PlusClick(Sender: TObject);
+    procedure MinusClick(Sender: TObject);
+    procedure ShowResult(ans: double);
+    procedure Add(L,R: double);
+    procedure Subtract(L,R: double);
+    procedure Divide(L,R: double);
+    procedure Multiply(L,R: double);
+    procedure MultiplyClick(Sender: TObject);
+    procedure DivideClick(Sender: TObject);
+    procedure Evaluator();
+    procedure Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    LastUsed: integer;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+    procedure TForm1.Evaluator();
+    begin
+          if LastUsed = 1 then
+            Add(SpinEdit1.Value,SpinEdit2.Value)
+          else if LastUsed = 2 then
+            Subtract(SpinEdit1.Value,SpinEdit2.Value)
+          else if LastUsed = 3 then
+            Multiply(SpinEdit1.Value,SpinEdit2.Value)
+          else if LastUsed = 4 then
+            Divide(SpinEdit1.Value,SpinEdit2.Value);
+    end;
+
+    procedure TForm1.Change(Sender: TObject);
+    begin
+         Evaluator();
+    end;
+procedure TForm1.ShowResult(ans: double);
+    begin
+      Answer.Caption := ans.ToString;
+    end;
+
+    procedure TForm1.PlusClick(Sender: TObject);
+    begin
+      Add(SpinEdit1.Value,SpinEdit2.Value);
+      LastUsed:=1;
+    end;
+
+    procedure TForm1.Add(L,R: double);
+    begin
+      ShowResult(L+R);
+    end;
+
+    procedure TForm1.MinusClick(Sender: TObject);
+    begin
+      Subtract(SpinEdit1.Value,SpinEdit2.Value);
+      LastUsed:=2;
+    end;
+
+    procedure TForm1.Subtract(L,R: double);
+    begin
+      ShowResult(L-R);
+    end;
+
+    procedure TForm1.MultiplyClick(Sender: TObject);
+    begin
+      Multiply(SpinEdit1.Value,SpinEdit2.Value);
+      LastUsed:=3;
+    end;
+
+    procedure TForm1.Multiply(L,R: double);
+    begin
+       ShowResult(L*R);
+    end;
+
+    procedure TForm1.DivideClick(Sender: TObject);
+    begin
+        Divide(SpinEdit1.Value,SpinEdit2.Value);
+        LastUsed:=4;
+    end;
+
+    procedure TForm1.Divide(L,R: double);
+    begin
+      if R <> 0 then
+      ShowResult(L/R);
+    end;
+end.

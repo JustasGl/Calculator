@@ -1,0 +1,77 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 382
+  ClientWidth = 760
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 592
+    Top = 272
+    Width = 31
+    Height = 13
+    Caption = 'Label1'
+  end
+  object Plus: TButton
+    Left = 64
+    Top = 248
+    Width = 65
+    Height = 65
+    Caption = '+'
+    TabOrder = 0
+    OnClick = PlusClick
+  end
+  object Edit1: TEdit
+    Left = 64
+    Top = 40
+    Width = 665
+    Height = 33
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    TextHint = 'Iveskite reik'#353'm'#281' su kuria norite atlikti veiksmus'
+  end
+  object Edit2: TEdit
+    Left = 64
+    Top = 88
+    Width = 665
+    Height = 33
+    TabOrder = 2
+    Text = 'Iveskite reik'#353'm'#281' su kuria norite atlikti veiksmus'
+  end
+  object Minus: TButton
+    Left = 151
+    Top = 248
+    Width = 65
+    Height = 65
+    Caption = '-'
+    TabOrder = 3
+    OnClick = MinusClick
+  end
+  object Multiplication: TButton
+    Left = 234
+    Top = 248
+    Width = 65
+    Height = 65
+    Caption = '*'
+    TabOrder = 4
+    OnClick = MultiplicationClick
+  end
+  object Division: TButton
+    Left = 320
+    Top = 248
+    Width = 65
+    Height = 65
+    Caption = '/'
+    TabOrder = 5
+    OnClick = DivisionClick
+  end
+end
